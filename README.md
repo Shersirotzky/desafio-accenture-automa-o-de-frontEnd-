@@ -109,27 +109,6 @@ Após uma execução pelo terminal, abra `reports/cucumber-report.html` no naveg
 
 Os relatórios refletem a última execução e ficam fora do versionamento. Consulte também o [registro de execução](docs/EXECUTION.md) e os [comportamentos conhecidos do DemoQA](docs/KNOWN_ISSUES.md), incluindo a remoção de vários registros com um clique no bônus.
 
-## Comandos úteis
-
-<details>
-<summary><strong>Verificar a qualidade do código</strong></summary>
-
-```sh
-npm run lint
-npm run format:check
-```
-
-</details>
-
-<details>
-<summary><strong>Cypress não inicia: erro “bad option”</strong></summary>
-
-Se aparecer `bad option: --smoke-test` ou `bad option: --no-sandbox` em um terminal iniciado por aplicativo Electron, remova a variável herdada apenas do processo de teste. No macOS/Linux:
-
-```sh
-env -u ELECTRON_RUN_AS_NODE npm run cy:open
-```
-
 Para executar a suíte pelo terminal:
 
 ```sh
