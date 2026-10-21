@@ -1,0 +1,51 @@
+{
+  "name": "accenture-demoqa-qa-automation",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Desafio frontend QA Automation — DemoQA, Cypress, Cucumber e Page Objects",
+  "engines": {
+    "node": "^22.12.0 || ^24.0.0"
+  },
+  "scripts": {
+    "test": "cypress run --browser chrome",
+    "test:form": "cypress run --browser chrome --spec cypress/e2e/features/practice-form.feature",
+    "test:windows": "cypress run --browser chrome --spec cypress/e2e/features/browser-windows.feature",
+    "test:tables": "cypress run --browser chrome --spec cypress/e2e/features/web-tables.feature",
+    "test:progress": "cypress run --browser chrome --spec cypress/e2e/features/progress-bar.feature",
+    "test:sortable": "cypress run --browser chrome --spec cypress/e2e/features/sortable.feature",
+    "cy:open": "cypress open --browser electron",
+    "lint": "eslint .",
+    "format:check": "prettier --check .",
+    "format": "prettier --write ."
+  },
+  "devDependencies": {
+    "@badeball/cypress-cucumber-preprocessor": "28.0.1",
+    "@bahmutov/cypress-esbuild-preprocessor": "2.2.8",
+    "@cypress/puppeteer": "0.1.10",
+    "cypress": "16.2.0",
+    "esbuild": "^0.25.0",
+    "eslint": "^9.0.0",
+    "eslint-plugin-cypress": "^5.0.0",
+    "globals": "^16.0.0",
+    "prettier": "^3.0.0",
+    "puppeteer-core": "25.15.0"
+  },
+  "cypress-cucumber-preprocessor": {
+    "stepDefinitions": [
+      "cypress/e2e/step_definitions/**/*.js"
+    ],
+    "html": {
+      "enabled": true,
+      "output": "reports/cucumber-report.html"
+    },
+    "json": {
+      "enabled": true,
+      "output": "reports/cucumber-report.json"
+    }
+  },
+  "overrides": {
+    "@cypress/puppeteer": {
+      "puppeteer-core": "$puppeteer-core"
+    }
+  }
+}
